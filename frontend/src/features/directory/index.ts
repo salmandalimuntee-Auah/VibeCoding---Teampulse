@@ -1,4 +1,3 @@
-/**
- * Directory Feature Domain Barrel Export
- */
-export type { Department, Employee } from './types';
+export * from './components/DirectoryView';
+export * from './components/EmployeeDetailView';
+export * from './types';

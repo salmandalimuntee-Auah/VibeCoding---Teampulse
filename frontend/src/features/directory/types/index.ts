@@ -1,18 +1,24 @@
-export interface Department {
-  id: string;
-  name: string;
-  parentDepartmentId?: string;
-}
+export type DepartmentName =
+  | 'Semua'
+  | 'Teknologi'
+  | 'Desain'
+  | 'Produk'
+  | 'Pemasaran'
+  | 'Penjualan'
+  | 'Operasional';
 
 export interface Employee {
   id: string;
   name: string;
   email: string;
-  avatarUrl?: string;
-  role: 'ADMIN' | 'MANAGER' | 'EMPLOYEE';
-  departmentId: string;
+  phone: string;
+  role: string;
+  department: Exclude<DepartmentName, 'Semua'>;
   position: string;
-  status: 'active' | 'inactive';
-  googleAccountConnected: boolean;
+  status: 'Aktif' | 'Cuti' | 'Nonaktif';
+  avatarColor: string;
   activeProjectsCount: number;
+  meetingHours: number;
+  joinedDate: string;
+  location: string;
 }

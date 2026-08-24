@@ -1,4 +1,2 @@
-/**
- * Meetings Feature Domain Barrel Export
- */
-export type { Meeting, OverloadAlert } from './types';
+export * from './components/MeetingsView';
+export * from './types';

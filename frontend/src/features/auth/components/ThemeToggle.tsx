@@ -1,14 +1,24 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Sun, Moon, Sparkles } from 'lucide-react';
+import { Sun, Moon } from 'lucide-react';
 
-export const ThemeToggle: React.FC = () => {
+interface ThemeToggleProps {
+  isFixed?: boolean;
+  className?: string;
+}
+
+export const ThemeToggle: React.FC<ThemeToggleProps> = ({
+  isFixed = true,
+  className = '',
+}) => {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
 
   useEffect(() => {
     // Check initial dataset or default to dark
-    const currentTheme = document.documentElement.getAttribute('data-theme') as 'light' | 'dark' || 'dark';
+    const currentTheme =
+      (document.documentElement.getAttribute('data-theme') as 'light' | 'dark') ||
+      'dark';
     setTheme(currentTheme);
   }, []);
 
@@ -24,35 +34,40 @@ export const ThemeToggle: React.FC = () => {
     }
   };
 
+  const positioningClass = isFixed ? 'fixed top-6 right-6 z-50' : 'relative z-10';
+
   return (
-    <div className="fixed top-6 right-6 z-50 flex items-center gap-1.5 p-1.5 rounded-full border border-[var(--color-card-border)] bg-[var(--color-card-bg)] shadow-md backdrop-blur-md transition-all">
+    <div
+      className={`${positioningClass} flex items-center gap-1 p-1 rounded-xl border border-[var(--color-card-border)] bg-[var(--color-card-bg)] shadow-sm transition-all ${className}`}
+    >
       <button
         type="button"
         onClick={() => toggleTheme('light')}
-        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+        className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
           theme === 'light'
-            ? 'bg-[var(--color-button-primary-bg)] text-white shadow-sm'
+            ? 'bg-[#2563EB] text-white shadow-xs'
             : 'text-[var(--color-text-subtitle)] hover:text-[var(--color-text-title)]'
         }`}
         title="Switch to Light Mode"
       >
         <Sun className="w-3.5 h-3.5" />
-        <span>Light</span>
+        <span className="hidden sm:inline">Light</span>
       </button>
 
       <button
         type="button"
         onClick={() => toggleTheme('dark')}
-        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+        className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold transition-all ${
           theme === 'dark'
-            ? 'bg-[var(--color-button-primary-bg)] text-white shadow-sm'
+            ? 'bg-[#2563EB] text-white shadow-xs'
             : 'text-[var(--color-text-subtitle)] hover:text-[var(--color-text-title)]'
         }`}
         title="Switch to Dark Mode"
       >
         <Moon className="w-3.5 h-3.5" />
-        <span>Dark</span>
+        <span className="hidden sm:inline">Dark</span>
       </button>
     </div>
   );
 };
+

@@ -1,4 +1,3 @@
-/**
- * Projects Feature Domain Barrel Export
- */
-export type { Project, ProjectMember, ProjectStatus, ProjectPriority } from './types';
+export * from './components/ProjectsView';
+export * from './components/ProjectDetailView';
+export * from './types';

@@ -1,22 +1,20 @@
-export type ProjectStatus = 'Planning' | 'InProgress' | 'OnHold' | 'Completed' | 'Cancelled';
-export type ProjectPriority = 'Low' | 'Medium' | 'High' | 'Critical';
+export type ProjectStatusName =
+  | 'Semua'
+  | 'Sedang Berjalan'
+  | 'Selesai'
+  | 'Hampir Selesai'
+  | 'Dalam Draft';
 
-export interface ProjectMember {
-  userId: string;
-  roleInProject: string;
-  joinedAt: string;
-}
-
-export interface Project {
+export interface ProjectItem {
   id: string;
   name: string;
   description: string;
-  status: ProjectStatus;
-  priority: ProjectPriority;
+  status: Exclude<ProjectStatusName, 'Semua'>;
   progressPercent: number;
   startDate: string;
-  endDate: string;
-  ownerId: string;
-  members: ProjectMember[];
-  isAtRisk?: boolean;
+  deadline: string;
+  leadName: string;
+  leadAvatarColor: string;
+  department: string;
+  members: { name: string; initials: string; color: string }[];
 }

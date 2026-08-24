@@ -1,4 +1,4 @@
-﻿/* Auto-generated design tokens from Light.tokens.json and Dark.tokens.json */
+/* Auto-generated design tokens from Light.tokens.json and Dark.tokens.json */
 :root, [data-theme='light'] {
   --tp-color-text-text-gray-text-display: #0B0D12;
   --tp-color-text-text-gray-text-primary: #181D27;
@@ -225,6 +225,7 @@
   --tp-button-tertiary-error-button-tertiary-error-fg-hover: #912019;
   --tp-button-tertiary-error-button-tertiary-error-bg-hover: #FEF3F2;
   /* High-level Semantic Tokens - Light Mode */
+  --color-bg-primary: #FFFFFF;
   --color-page-bg: #FFFFFF;
   --color-card-bg: #FFFFFF;
   --color-card-border: #E9EAEB;
@@ -475,6 +476,7 @@
   --tp-button-tertiary-error-button-tertiary-error-fg-hover: #FECDCA;
   --tp-button-tertiary-error-button-tertiary-error-bg-hover: #7A2E0D;
   /* High-level Semantic Tokens - Dark Mode */
+  --color-bg-primary: #0B0E14;
   --color-page-bg: #0B0E14;
   --color-card-bg: #161B26;
   --color-card-border: #222834;
