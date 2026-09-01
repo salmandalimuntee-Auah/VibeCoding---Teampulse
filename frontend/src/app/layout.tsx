@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import '../design-system/tokens/theme-tokens.css';
 import './globals.css';
+import { Providers } from './providers';
 
 export const metadata: Metadata = {
   title: 'TeamPulse - Dashboard Kinerja Tim',
@@ -22,7 +23,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="/css/style.css" />
       </head>
       <body className="antialiased selection:bg-blue-500/20 selection:text-blue-400">
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
